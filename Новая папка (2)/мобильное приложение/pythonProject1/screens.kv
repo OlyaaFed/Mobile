@@ -1,0 +1,64 @@
+MDScreenManager:
+    LoginScreen:
+    HomeScreen:
+
+<LoginScreen>:
+    name: "login"
+    MDFloatLayout:
+        md_bg_color: 0.96, 0.94, 0.90, 1  # Бежевый фон
+
+        MDCard:
+            orientation: "vertical"
+            size_hint: 0.85, 0.6
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            padding: "24dp"
+            spacing: "20dp"
+            elevation: 8
+            radius: [20, 20, 20, 20]
+            md_bg_color: 1, 1, 1, 1
+
+            MDLabel:
+                text: "Вход в систему"
+                halign: "center"
+                font_style: "H5"
+                theme_text_color: "Primary"
+
+            MDTextField:
+                id: email
+                hint_text: "Email"
+                icon_right: "email"
+                mode: "rectangle"
+
+            MDTextField:
+                id: password
+                hint_text: "Пароль"
+                icon_right: "lock"
+                password: True
+                mode: "rectangle"
+
+            MDRaisedButton:
+                text: "Войти"
+                pos_hint: {"center_x": 0.5}
+                on_release: root.login()
+
+<HomeScreen>:
+    name: "home"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: 0.96, 0.94, 0.90, 1  # Бежевый фон
+
+        MDTopAppBar:
+            title: "Книги"
+            elevation: 4
+            md_bg_color: 0.85, 0.76, 0.64, 1  # Темнее бежевый
+            title_color: 0.1, 0.1, 0.1, 1
+
+        ScrollView:
+            MDBoxLayout:
+                id: book_list
+                orientation: "vertical"
+                padding: "12dp"
+                spacing: "12dp"
+                size_hint_y: None
+                height: self.minimum_height
